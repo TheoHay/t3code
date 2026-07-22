@@ -1759,6 +1759,7 @@ function ComposerPromptEditorInner({
               aria-placeholder={placeholder}
               placeholder={<span />}
               onPaste={onPaste}
+              spellCheck={true}
             />
           }
           placeholder={

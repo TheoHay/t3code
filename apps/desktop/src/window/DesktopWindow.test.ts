@@ -72,6 +72,9 @@ function makeFakeBrowserWindow() {
     openDevTools: vi.fn(),
     reload: vi.fn(),
     replaceMisspelling: vi.fn(),
+    session: {
+      setSpellCheckerLanguages: vi.fn(),
+    },
     send: vi.fn(),
     setWindowOpenHandler: vi.fn(),
   };
@@ -116,6 +119,7 @@ function makeFakeBrowserWindow() {
     openDevTools: webContents.openDevTools,
     reload: webContents.reload,
     send: webContents.send,
+    setSpellCheckerLanguages: webContents.session.setSpellCheckerLanguages,
     setAutoHideCursor: window.setAutoHideCursor,
     webContentsListeners,
     windowListeners,
@@ -429,6 +433,8 @@ describe("DesktopWindow", () => {
         assert.isUndefined(createdWindowOptions[0]?.x);
         assert.isUndefined(createdWindowOptions[0]?.y);
         assert.isTrue(createdWindowOptions[0]?.disableAutoHideCursor);
+        assert.isTrue(createdWindowOptions[0]?.webPreferences?.spellcheck);
+        assert.deepEqual(fakeWindow.setSpellCheckerLanguages.mock.calls, [[["en-US", "fr"]]]);
         assert.deepEqual(fakeWindow.setAutoHideCursor.mock.calls, [[false]]);
         assert.deepEqual(fakeWindow.loadURL.mock.calls[0], ["t3code-dev://app/"]);
         assert.equal(fakeWindow.openDevTools.mock.calls.length, 1);

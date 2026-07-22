@@ -24,6 +24,7 @@ const TITLEBAR_COLOR = "#01000000"; // #00000000 does not work correctly on Linu
 const TITLEBAR_LIGHT_SYMBOL_COLOR = "#1f2937";
 const TITLEBAR_DARK_SYMBOL_COLOR = "#f8fafc";
 const MAIN_WINDOW_BOUNDS_PERSIST_DEBOUNCE_MS = 500;
+const SPELLCHECK_LANGUAGES = ["en-US", "fr"] as const;
 const DEVELOPMENT_LOAD_RETRY_DELAYS_MS = [100, 250, 500, 1_000, 2_000] as const;
 const DEVELOPMENT_RETRYABLE_LOAD_ERROR_CODES = new Set([
   -2, // ERR_FAILED
@@ -335,8 +336,11 @@ export const make = Effect.gen(function* () {
         nodeIntegration: false,
         sandbox: true,
         webviewTag: true,
+        spellcheck: true,
       },
     });
+
+    window.webContents.session.setSpellCheckerLanguages([...SPELLCHECK_LANGUAGES]);
 
     if (environment.platform === "darwin") {
       window.setAutoHideCursor(false);

@@ -1,4 +1,8 @@
 export const BRAND_ASSET_PATHS = {
+  // Rasterized from the personal fork's root codex-logo.svg source.
+  personalDesktopIconPng: "assets/personal/codex-logo.png",
+  personalWindowsIconIco: "assets/personal/codex-logo-windows.ico",
+
   developmentIconComposerProject: "assets/dev/app-icon.icon",
   developmentIosIconPng: "assets/dev/blueprint-ios-1024.png",
   developmentUniversalIconPng: "assets/dev/blueprint-universal-1024.png",

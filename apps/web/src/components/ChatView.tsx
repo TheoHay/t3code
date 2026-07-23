@@ -5321,7 +5321,7 @@ function ChatViewContent(props: ChatViewProps) {
                   aria-hidden="true"
                   className="chat-composer-horizontal-inset pointer-events-none absolute inset-x-0 top-1.5 bottom-0 z-0 sm:top-2"
                 >
-                  <div className="relative mx-auto h-full w-full max-w-3xl overflow-clip rounded-t-[20px]">
+                  <div className="chat-content-column relative mx-auto h-full w-full overflow-clip rounded-t-[20px]">
                     <div className="chat-composer-shared-blur absolute -inset-8" />
                   </div>
                 </div>
@@ -5363,7 +5363,7 @@ function ChatViewContent(props: ChatViewProps) {
                   >
                     <div
                       ref={attachDraftHeroComposerAnchorRef}
-                      className="relative z-10 mx-auto w-full max-w-3xl"
+                      className="chat-content-column relative z-10 mx-auto w-full"
                     >
                       <ChatComposer
                         composerRef={composerRef}

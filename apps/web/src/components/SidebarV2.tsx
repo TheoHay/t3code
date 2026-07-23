@@ -323,8 +323,9 @@ const SidebarV2Row = memo(function SidebarV2Row(props: {
 
   const rowClassName = cn(
     "group/v2-row relative w-full cursor-pointer select-none rounded-md text-left",
+    props.isActive && "sidebar-active-thread",
     props.isActive
-      ? "bg-foreground/[0.11] text-foreground dark:bg-white/[0.11]"
+      ? "bg-primary/10 text-foreground ring-1 ring-inset ring-primary/20"
       : isSelected
         ? "bg-foreground/[0.07] text-foreground dark:bg-white/[0.07]"
         : "hover:bg-accent/65",
@@ -483,8 +484,9 @@ const SidebarV2Row = memo(function SidebarV2Row(props: {
           // discrete objects; active/selected/hover are brighter tones of
           // the same treatment rather than a different shape.
           "group/v2-row relative w-full cursor-pointer select-none overflow-hidden rounded-lg text-left transition-colors",
+          props.isActive && "sidebar-active-thread",
           props.isActive
-            ? "bg-foreground/[0.11] text-foreground dark:bg-white/[0.11]"
+            ? "bg-primary/10 text-foreground ring-1 ring-inset ring-primary/20"
             : isSelected
               ? "bg-foreground/[0.07] text-foreground dark:bg-white/[0.07]"
               : shouldRecede

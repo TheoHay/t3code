@@ -839,6 +839,7 @@ describe("resolveThreadRowClassName", () => {
     expect(className).toContain("bg-primary/22");
     expect(className).toContain("hover:bg-primary/26");
     expect(className).toContain("dark:bg-primary/30");
+    expect(className).toContain("sidebar-active-thread");
     expect(className).not.toContain("bg-accent/85");
   });
 
@@ -847,13 +848,15 @@ describe("resolveThreadRowClassName", () => {
     expect(className).toContain("bg-primary/15");
     expect(className).toContain("hover:bg-primary/19");
     expect(className).toContain("dark:bg-primary/22");
+    expect(className).not.toContain("sidebar-active-thread");
     expect(className).not.toContain("hover:bg-accent");
   });
 
   it("keeps the accent palette for active-only threads", () => {
     const className = resolveThreadRowClassName({ isActive: true, isSelected: false });
-    expect(className).toContain("bg-accent/85");
-    expect(className).toContain("hover:bg-accent");
+    expect(className).toContain("sidebar-active-thread");
+    expect(className).toContain("bg-primary/10");
+    expect(className).toContain("hover:bg-primary/14");
   });
 });
 

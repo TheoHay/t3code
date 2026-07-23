@@ -2122,7 +2122,7 @@ export const ChatComposer = memo(function ChatComposer(props: ChatComposerProps)
     <form
       ref={composerFormRef}
       onSubmit={submitComposer}
-      className="mx-auto w-full min-w-0 max-w-3xl"
+      className="chat-content-column mx-auto w-full min-w-0"
       data-chat-composer-form="true"
     >
       <div
@@ -2143,10 +2143,10 @@ export const ChatComposer = memo(function ChatComposer(props: ChatComposerProps)
           ref={composerSurfaceRef}
           data-chat-composer-mobile-collapsed={isComposerCollapsedMobile ? "true" : "false"}
           className={cn(
-            "chat-composer-glass rounded-[20px] border transition-[background-color] duration-200 has-focus-visible:border-foreground/40",
+            "chat-composer-glass rounded-[20px] border",
             isDragOverComposer
               ? "border-primary/70 bg-accent/45"
-              : "border-black/12 dark:border-white/12",
+              : "border-black/12 dark:border-white/14",
             projectSelectionRequired ? "opacity-75" : null,
             composerProviderState.composerSurfaceClassName,
           )}

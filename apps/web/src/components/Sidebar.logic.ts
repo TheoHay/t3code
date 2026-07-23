@@ -396,7 +396,7 @@ export function resolveThreadRowClassName(input: {
   if (input.isSelected && input.isActive) {
     return cn(
       baseClassName,
-      "bg-primary/22 text-foreground font-medium hover:bg-primary/26 hover:text-foreground dark:bg-primary/30 dark:hover:bg-primary/36",
+      "sidebar-active-thread bg-primary/22 text-foreground font-medium ring-1 ring-inset ring-primary/20 hover:bg-primary/26 hover:text-foreground dark:bg-primary/30 dark:hover:bg-primary/36",
     );
   }
 
@@ -410,7 +410,7 @@ export function resolveThreadRowClassName(input: {
   if (input.isActive) {
     return cn(
       baseClassName,
-      "bg-accent/85 text-foreground font-medium hover:bg-accent hover:text-foreground dark:bg-accent/55 dark:hover:bg-accent/70",
+      "sidebar-active-thread bg-primary/10 text-foreground font-medium ring-1 ring-inset ring-primary/20 hover:bg-primary/14 hover:text-foreground dark:bg-primary/14 dark:hover:bg-primary/18",
     );
   }
 

@@ -319,6 +319,7 @@ const makeSplashScenario = (createOutcomes: readonly (Electron.BrowserWindow | n
                 webPreferences: {
                   preload: null,
                   partition: null,
+                  backgroundThrottling: null,
                   sandbox: null,
                   contextIsolation: null,
                   nodeIntegration: null,
@@ -435,6 +436,7 @@ describe("DesktopWindow", () => {
         assert.isTrue(createdWindowOptions[0]?.disableAutoHideCursor);
         assert.isTrue(createdWindowOptions[0]?.webPreferences?.spellcheck);
         assert.deepEqual(fakeWindow.setSpellCheckerLanguages.mock.calls, [[["en-US", "fr"]]]);
+        assert.isFalse(createdWindowOptions[0]?.webPreferences?.backgroundThrottling);
         assert.deepEqual(fakeWindow.setAutoHideCursor.mock.calls, [[false]]);
         assert.deepEqual(fakeWindow.loadURL.mock.calls[0], ["t3code-dev://app/"]);
         assert.equal(fakeWindow.openDevTools.mock.calls.length, 1);
